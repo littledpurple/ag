@@ -16,6 +16,9 @@ g.add_argument('-f', action="store", dest="full", default="", help='Full text se
 args = parser.parse_args()
 # end of arguments parsing
 
+if (not (os.path.isfile(args.log))):
+    print("File does not exist!")
+    sys.exit()
 # functions
 def search_ext(log, text): # search by extension
     outlist, calls=[], []
@@ -94,22 +97,22 @@ if (args.ext) != "":
     outlist = search_ext(args.log, args.ext)
     for line in outlist:
         print(colorlog(line[1]))
-    quit()
+    sys.exit()
     
 if (args.chan) != "":
     outlist = search_ext(args.log, args.chan)
     for line in outlist:
         print(colorlog(line[1]))
-    quit()
+    sys.exit()
 
 if (args.call) != "":
     outlist = search_call(args.log, args.call)
     for line in outlist:
         print(colorlog(line))
-    quit()
+    sys.exit()
 
 if (args.full) != "":
     outlist = search_full(args.log, args.full)
     for line in outlist:
         print(colorlog(line))
-    quit()
+    sys.exit()
