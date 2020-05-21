@@ -19,6 +19,7 @@ args = parser.parse_args()
 if (not (os.path.isfile(args.log))):
     print("File does not exist!")
     sys.exit()
+    
 # functions
 def search_ext(log, text): # search by extension
     outlist, calls=[], []
