@@ -34,7 +34,7 @@ def search_ext(log, text): # search by extension
                             outlist.append([string[1], line.rstrip()]) # appending call ID and full line to the output list
     return(outlist)
 
-def search_chan(log, text): # search by extension
+def search_chan(log, text): # search by channel
     outlist, calls=[], []
     regex='\[\d{4}\-\d{2}\-\d{2}\s\d{2}\:\d{2}\:\d{2}\]\s[A-Z]*\[\d*\]\[([A-Z]\-[^\]]*)][^\[]*\[([^\]]*)\]\s[A-Za-z]*\(\"([^"]*)\"'
     with open(log) as f:
